@@ -13,48 +13,42 @@ import { DashboardMonitorComponent } from './dashboard/monitor/monitor.component
 import { DashboardWorkplaceComponent } from './dashboard/workplace/workplace.component';
 // pro
 import { ProUserLayoutComponent } from '../layout/pro/user/user.component';
-import { ProUserLoginComponent } from './pro/user/login/login.component';
-import { ProUserRegisterComponent } from './pro/user/register/register.component';
-import { ProUserRegisterResultComponent } from './pro/user/register-result/register-result.component';
+// 自定义功能
+import { UserComponent } from './user/user.component';
+import { OrgComponent } from './org/org.component';
+import { ResourceComponent } from './sys-manage/resource/resource.component';
+import { RoleComponent } from './sys-manage/role/role.component';
+import { RoleResourceComponent } from './sys-manage/role-resource/role-resource.component';
 
 export const routes = [
     {
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full' },
-            { path: 'dashboard', redirectTo: 'dashboard/v1', pathMatch: 'full' },
-            { path: 'dashboard/v1', component: DashboardV1Component, data: { translate: 'dashboard_v1' } },
-            { path: 'dashboard/analysis', component: DashboardAnalysisComponent, data: { translate: 'dashboard_analysis' } },
+            // index menu
+            { path: '', redirectTo: 'dashboard/monitor', pathMatch: 'full' },
+            // self menus
+            { path: 'user', component: UserComponent},
+            { path: 'org', component: OrgComponent},
+            { path: 'resource', component: ResourceComponent},
+            { path: 'role', component: RoleComponent},
+            { path: 'role-resource', component: RoleResourceComponent},
+
+
+            // others
+            // { path: 'dashboard/v1', component: DashboardV1Component, data: { translate: 'dashboard_v1' } },
+            // { path: 'dashboard/analysis', component: DashboardAnalysisComponent, data: { translate: 'dashboard_analysis' } },
             { path: 'dashboard/monitor', component: DashboardMonitorComponent, data: { translate: 'dashboard_monitor' } },
-            { path: 'dashboard/workplace', component: DashboardWorkplaceComponent, data: { translate: 'dashboard_workplace' } },
-            { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
-            { path: 'elements', loadChildren: './elements/elements.module#ElementsModule' },
-            { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
-            { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
-            { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
-            { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
-            { path: 'logics', loadChildren: './logics/logics.module#LogicsModule' },
-            { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
-            { path: 'pro', loadChildren: './pro/pro.module#ProModule' }
-        ]
-    },
-    // 全屏布局
-    {
-        path: 'data-v',
-        component: LayoutFullScreenComponent,
-        children: [
-            { path: '', loadChildren: './data-v/data-v.module#DataVModule' }
-        ]
-    },
-    // pro 单页，存在此原因是体验更好，这样不必在首次Angular运行后还需要下载模块文件才会渲染成功
-    {
-        path: 'pro/user',
-        component: ProUserLayoutComponent,
-        children: [
-            { path: 'login', component: ProUserLoginComponent },
-            { path: 'register', component: ProUserRegisterComponent },
-            { path: 'register-result', component: ProUserRegisterResultComponent }
+            // { path: 'dashboard/workplace', component: DashboardWorkplaceComponent, data: { translate: 'dashboard_workplace' } },
+            // { path: 'widgets', loadChildren: './widgets/widgets.module#WidgetsModule' },
+            // { path: 'elements', loadChildren: './elements/elements.module#ElementsModule' },
+            // { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
+            // { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
+            // { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
+            // { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
+            // { path: 'logics', loadChildren: './logics/logics.module#LogicsModule' },
+            // { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
+            // { path: 'pro', loadChildren: './pro/pro.module#ProModule' }
         ]
     },
     // 单页不包裹Layout

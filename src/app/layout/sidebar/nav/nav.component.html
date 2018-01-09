@@ -1,9 +1,6 @@
 <ul class="nav">
     <ng-container *ngFor="let group of menuSrv.menus">
         <ng-template [ngIf]="group.hide !== true">
-            <li class="nav-group-title">
-                <span>{{ (group.translate | translate) || group.text }}</span>
-            </li>
             <ng-container *ngFor="let child1 of group.children">
                 <li *ngIf="child1.hide !== true" [routerLinkActive]="['nav-item-selected']" [class.nav-submenu-open]="child1._open">
                     <!-- link -->

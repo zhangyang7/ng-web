@@ -77,8 +77,12 @@ export class ProHeaderComponent implements OnInit {
         const paths: any[] = [];
         menus.forEach(item => {
             let title;
-            if (item.translate) title = this.translatorSrv.fanyi(item.translate);
-            paths.push({ title: title || item.text, link: item.link && [ item.link ] });
+            
+            if ('main_navigation' === item.translate) console.log(item.text + '忽略');
+            else {
+                if (item.translate) title = this.translatorSrv.fanyi(item.translate);
+                paths.push({ title: title || item.text, link: item.link && [ item.link ] });
+            }
         });
         // add home
         paths.splice(0, 0, {

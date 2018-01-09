@@ -9,10 +9,12 @@ import { DashboardAnalysisComponent } from './dashboard/analysis/analysis.compon
 import { DashboardMonitorComponent } from './dashboard/monitor/monitor.component';
 import { DashboardWorkplaceComponent } from './dashboard/workplace/workplace.component';
 
-// pro
-import { ProUserLoginComponent } from './pro/user/login/login.component';
-import { ProUserRegisterComponent } from './pro/user/register/register.component';
-import { ProUserRegisterResultComponent } from './pro/user/register-result/register-result.component';
+// Normal
+import { UserComponent } from './user/user.component';
+import { OrgComponent } from './org/org.component';
+import { ResourceComponent } from './sys-manage/resource/resource.component';
+import { RoleComponent } from './sys-manage/role/role.component';
+import { RoleResourceComponent } from './sys-manage/role-resource/role-resource.component';
 
 @NgModule({
     imports: [
@@ -21,14 +23,18 @@ import { ProUserRegisterResultComponent } from './pro/user/register-result/regis
         PagesModule
     ],
     declarations: [
+        // Index
         DashboardV1Component,
         DashboardAnalysisComponent,
         DashboardMonitorComponent,
         DashboardWorkplaceComponent,
-        // pro
-        ProUserLoginComponent,
-        ProUserRegisterComponent,
-        ProUserRegisterResultComponent
+        // Normal
+        UserComponent,
+        OrgComponent,
+        // System
+        ResourceComponent,
+        RoleComponent,
+        RoleResourceComponent
     ],
     exports: [
         RouterModule
